@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Clean Blog - Test</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="clean-blog.min.css" rel="stylesheet">
+
+    <link href="sweetalert.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="text.html">Text</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('/assets/post-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Instructions</h1>
+                        <h2 class="subheading" align="justify">You’re about to do is a story about how a guy met his wife. Note that you need to fill in some blanks. You have three choices of answers, but choose only one: the one that sounds more natural than the two others.</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <%= form_for @test, :html => { :id => "testForm"} do |t| %>
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <h1>How I met my wife</h1>
+                    <p align="justify">
+                        In the early two thousands, more <%= t.select :answer_1, "<option></option><option>specifically</option><option>logically</option><option>precisely</option>".html_safe %> in 2001, I became a student of Harvard Law School. On my first day of class, despite being very shy, I met Helen, who became my best friend for the <%= t.select :answer_2, "<option></option><option>past</option><option>following</option><option>next few</option>".html_safe %> years in the University.
+                    </p>
+                    <p align="justify">
+                        One day, he had <%= t.select :answer_3, "<option></option><option>planned</option><option>scheduled</option><option>depicted</option>".html_safe %> to have lunch together after class. <%= t.select :answer_4, "<option></option><option>However</option><option>Accordingly</option><option>But</option>".html_safe %> our plans changed when she received a call. Helen, with a smiling face, answered the cellphone. Her smile simply vanished – she seemed to be very tense.
+                    </p>
+                    <p align="justify">
+                        In that moment, I was already distressed and I could only think: “My goodness, who has it worse: is it Helen, that <%= t.select :answer_5, "<option></option><option>becomes</option><option>is becoming</option><option>used to become</option>".html_safe %> so nervous with the phone call, or me, the one that <%= t.select :answer_6, "<option></option><option>is not understanding</option><option>is used to understanding</option><option>don’t understand</option>".html_safe %> absolutely anything from this mysterious dialogue?”
+                    </p>
+                    <p align="justify">
+                        When she hung up the phone, I asked her what was going on. Helen, crying, <%= t.select :answer_7, "<option></option><option>said</option><option>told me</option><option>listened</option>".html_safe %>: “It was my cousin! Take me home, please! My mother is NY and some terrorists have just destroyed the building <%= t.select :answer_8, "<option></option><option>where</option><option>that</option><option>who</option>".html_safe %> her appointment would take place.Nobody has talked to her yet!”
+                    </p>
+                    <p>
+                        “The possibility of leaving you alone <%= t.select :answer_9, "<option></option><option>doesn’t exist</option><option>not to exist</option><option>is not existing</option>".html_safe %> in a moment like this. <%= t.select :answer_10, "<option></option><option>Who knows</option><option>It’s obvious</option><option>Of course</option>".html_safe %> I’ll go home with you!” – I said.
+                    </p>
+                    <p align="justify">
+                        We went, then, <%= t.select :answer_11, "<option></option><option>to</option><option>over to</option><option>since</option>".html_safe %> Helen’s neighborhood. As soon as we arrived at her house, we rang the doorbell and somebody opened the door. That was very strange to me, because Helen told me she lived by herself. When the door was open, I thought: “I don’t believe in what I <%= t.select :answer_12, "<option></option><option>will see</option><option>see</option><option> am seeing </option>".html_safe %>! She is absolutely the most beautiful woman in the world!”
+                    </p>
+                    <p align="justify">
+                        I spent so much time gazing at that <%= t.select :answer_13, "<option></option><option>girl</option><option>bird</option><option>woman</option>".html_safe %> that I forgot to come in. I stood still for a minute until Helen told me to enter. She said: “This is Joanne, my cousin.” When I entered the house, I thought to myself: “Joanne <%= t.select :answer_14, "<option></option><option>lives</option>would live<option>is living</option><option>lives</option>".html_safe %> here!”
+                    </p>
+                    <p align="justify">
+                        Then, Joanne said: “Helen, you mother has just called. <%= t.select :answer_15, "<option></option><option>Relax</option><option>Take a deep breath</option><option>Hurry up</option>".html_safe %>, ‘cause she is just fine. Her appointment was canceled.” Helen was crying much more now, but tears of relief. “I am so relieved!” – yelled Helen, in a burst of <%= t.select :answer_16, "<option></option><option>happiness</option><option>sadness</option><option>joy</option>".html_safe %>.
+                    </p>
+                    <p align="justify">
+                        “Oh yeah!” said Joanne. “But maybe he wasn’t so lucky, having undergone so much stress. Look at him, poor guy...” And talking to me, she continued: “I’ll do something for you. I <%= t.select :answer_17, "<option></option><option>don’t like</option><option>wouldn’t like</option><option>am not liking</option>".html_safe %> your facial expression. You must be hungry! Why don’t we eat out to ease the tension?”
+                    </p>
+                    <p align="justify">
+                        The telephone rang and Helen quickly answered it. “It’s my mom!” – she said – “you guys go together, I’ll meet you later!” We went together, Joanne and I, and, since then, we have never left each other’s sides. This is the story of our first date. It’s amazing that on a day like September 11, 2001, we could <%= t.select :answer_18, "<option></option><option>find</option><option>come across</option><option>lose</option>".html_safe %> love in the midst of chaos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><b>Now, If you agree to take part in my research, I just need to know some pieces of information about you:</b></p>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Name</label>
+                            <%= t.text_field :name, :placeholder => "Name", class: "form-control" %>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Gender</label>
+                            <%= t.text_field :gender, :placeholder => "Gender", class: "form-control" %>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Age</label>
+                            <%= t.text_field :age, :placeholder => "Age", class: "form-control" %>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Hometown</label>
+                            <%= t.text_field :hometown, :placeholder => "Hometown", class: "form-control" %>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Education</label>
+                            <%= t.text_field :education, :placeholder => "Education", class: "form-control" %>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Email Address</label>
+                            <%= t.email_field :email, :placeholder => "Email", class: "form-control" %>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div> 
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Bilingual</label>
+                            <%= t.text_field :bilingual, :placeholder => "Are you bilingual? If so, what language(s)?", class: "form-control" %>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Foreign</label>
+                            <%= t.text_field :foreign, :placeholder => "Have you studied a foreign language? If so, what language(s)?", class: "form-control" %>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <center>
+                                <%= t.submit "Send", class: "btn btn-default btn-lg" %>
+                            </center>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <% end %>
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <%= javascript_include_tag "sweetalert.min.js" %>
+
+    <%= javascript_include_tag "jquery.js" %>
+    <%= javascript_include_tag "jquery.validate.js" %>
+
+    <!-- Bootstrap Core JavaScript -->
+    <%= javascript_include_tag "bootstrap.min.js" %>
+
+    <script>
+        $(document).ready(function () {
+            $('#testForm').validate({
+                onclick: false,
+                rules: {
+                    'test[name]': {
+                        required: true
+                    },
+                    'test[gender]': {
+                        required: true
+                    },
+                    'test[age]': {
+                        required: true
+                    },
+                    'test[email]': {
+                        required: true,
+                        email: true
+                    },
+                    'test[education]': {
+                        required: true
+                    },
+                    'test[hometown]': {
+                        required: true
+                    },
+                    'test[bilingual]': {
+                        required: true
+                    },
+                    'test[foreign]': {
+                        required: true
+                    },
+                    'test[answer_1]': {
+                        required: true
+                    },
+                    'test[answer_2]': {
+                        required: true
+                    },
+                    'test[answer_3]': {
+                        required: true
+                    },
+                    'test[answer_4]': {
+                        required: true
+                    },
+                    'test[answer_5]': {
+                        required: true
+                    },
+                    'test[answer_6]': {
+                        required: true
+                    },
+                    'test[answer_7]': {
+                        required: true
+                    },
+                    'test[answer_8]': {
+                        required: true
+                    },
+                    'test[answer_9]': {
+                        required: true
+                    },
+                    'test[answer_10]': {
+                        required: true
+                    },
+                    'test[answer_11]': {
+                        required: true
+                    },
+                    'test[answer_12]': {
+                        required: true
+                    },
+                    'test[answer_13]': {
+                        required: true
+                    },
+                    'test[answer_14]': {
+                        required: true
+                    },
+                    'test[answer_15]': {
+                        required: true
+                    },
+                    'test[answer_16]': {
+                        required: true
+                    },
+                    'test[answer_17]': {
+                        required: true
+                    },
+                    'test[answer_18]': {
+                        required: true
+                    },
+                },
+                errorPlacement: function (error, element) {
+                    swal({   
+                        title: "Error!",   
+                        text: "You didn't fill in all of the blanks. Please, check it.",   
+                        type: "error",   
+                        confirmButtonText: "Ok"
+                    }); 
+                }
+            });
+        });
+    </script>
+
+    <% if flash[:success] %>
+      <script>
+      swal({
+            title: "Success!",   
+            text: "Thank you for your help! The results of my dissertation will available on March 17. If you want me to send it, go to 'contact' section!",   
+            type: "success",   
+            confirmButtonText: "Ok"
+        }); 
+      </script>
+    <% end %>
+
+
+</body>
+
+</html>
