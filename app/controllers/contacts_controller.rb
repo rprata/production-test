@@ -10,7 +10,6 @@ class ContactsController < ApplicationController
 	      	flash[:success] = "email was sent!"
 	      	redirect_to '/contact'
 	    else 
-			## add error message
 			render 'new'	 
 	    end
 	end

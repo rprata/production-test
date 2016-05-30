@@ -17,6 +17,8 @@
     <!-- Custom CSS -->
     <link href="clean-blog.min.css" rel="stylesheet">
 
+    <link href="sweetalert.css" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -110,7 +112,7 @@
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>Message</label>
-                            <%= t.text_area :message, :rows => "5", :placeholder => "Name", class: "form-control" %>
+                            <%= t.text_area :message, :rows => "5", :placeholder => "Write your message here", class: "form-control" %>
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
@@ -141,14 +143,55 @@
         </div>
     </footer>
 
-    <!-- jQuery -->
-    <script src="jquery.js"></script>
+    <%= javascript_include_tag "sweetalert.min.js" %>
+
+    <%= javascript_include_tag "jquery.js" %>
+    <%= javascript_include_tag "jquery.validate.js" %>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="bootstrap.min.js"></script>
+    <%= javascript_include_tag "bootstrap.min.js" %>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="clean-blog.min.js"></script>
+    <script>
+        $(document).ready(function() {
+          $("#contactForm").validate({
+            onclick: false,
+            rules: {
+              "contact[name]": {
+                required: true,
+              },
+              "contact[email]": {
+                required: true,
+                email: true,
+              },
+              "contact[message]": {
+                required: true,
+                minlength: 5
+              }
+            },
+            errorPlacement: function (error, element) {
+                swal({   
+                    title: "Error!",   
+                    text: "You didn't fill in all of the blanks. Please, check it.",   
+                    type: "error",   
+                    confirmButtonText: "Ok"
+                }); 
+            }
+           });
+       });
+
+    </script>
+
+
+    <% if flash[:success] %>
+      <script>
+      swal({
+            title: "Success!",   
+            text: "Thank you for your message! Soon I'll answer you!",   
+            type: "success",   
+            confirmButtonText: "Ok"
+        }); 
+      </script>
+    <% end %>
 
 </body>
 
