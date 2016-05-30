@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'bundler', '>= 1.8.4'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -44,3 +46,11 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem "chartkick"
+
+source 'https://rails-assets.org' do
+	gem 'rails-assets-sweetalert'
+end
+# gem 'sweet-alert'
+gem 'sweet-alert-confirm'

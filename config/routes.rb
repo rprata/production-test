@@ -6,14 +6,19 @@ ProductionTest::Application.routes.draw do
   get '/' => 'tests#index'
   get '/index' => 'tests#index'
   get '/tests/:id' => 'tests#show'
-  get '/contact' => 'tests#contact'
 
   resources :users
   get '/admin' => 'admin#index'
+  get '/statistics' => 'admin#statistics'
   get '/admin/signup'  => 'users#new' 
   get '/admin/login'  => 'sessions#new' 
   post '/admin/login' => 'sessions#create'
   delete '/admin/logout' => 'sessions#destroy'
+
+  resources :contacts
+  get '/contact' => 'contacts#new'
+  post 'contact' => 'contacts#create'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -15,4 +15,5 @@
 //= require jquery.validate.additional-methods
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require sweet-alert-confirm
+//= require chartkick

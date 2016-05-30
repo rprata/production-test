@@ -28,6 +28,8 @@ class CreateTests < ActiveRecord::Migration
       t.string :answer_16
       t.string :answer_17
       t.string :answer_18
+
+      t.integer :wrong_answers
       
       t.timestamps
     end

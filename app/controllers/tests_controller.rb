@@ -1,14 +1,76 @@
 class TestsController < ApplicationController
 
-	before_action :require_user, only: [:show]
-	
+	before_action :require_user, only: [:show, :delete]
+
+
+	def get_total_wrong_answers(test)
+		counter = 0
+		if test.answer_1.eql? "logically"
+			counter += 1
+		end
+		if test.answer_2.eql? "past"
+			counter += 1
+		end
+		if test.answer_3.eql? "depicted"
+			counter += 1
+		end
+		if test.answer_4.eql? "Accordingly"
+			counter += 1
+		end
+		if test.answer_5.eql? "used to become"
+			counter += 1
+		end
+		if test.answer_6.eql? "is used to understanding"
+			counter += 1
+		end
+		if test.answer_7.eql? "listened"
+			counter += 1
+		end
+		if test.answer_8.eql? "who"
+			counter += 1
+		end
+		if test.answer_9.eql? "not to exist"
+			counter += 1
+		end
+		if test.answer_10.eql? "Who knows"
+			counter += 1
+		end
+		if test.answer_11.eql? "since"
+			counter += 1
+		end
+		if test.answer_12.eql? "will see"
+			counter += 1
+		end
+		if test.answer_13.eql? "bird"
+			counter += 1
+		end
+		if test.answer_14.eql? "would live"
+			counter += 1
+		end
+		if test.answer_15.eql? "Hurry up"
+			counter += 1
+		end
+		if test.answer_16.eql? "sadness"
+			counter += 1
+		end
+		if test.answer_17.eql? "wouldn't like"
+			counter += 1
+		end
+		if test.answer_18.eql? "lose"
+			counter += 1
+		end
+
+		return counter
+	end
+
 	def new
 		@test = Test.new
 	end
 
 	def create 
-	    @test = Test.new(test_params) 
-	    if @test.save!
+	    @test = Test.new(test_params)
+	    @test.wrong_answers = get_total_wrong_answers(@test)
+	    if @test.save
 	      flash[:success] = "works!"
 	      redirect_to '/text'
 	    else 
@@ -23,6 +85,12 @@ class TestsController < ApplicationController
 
 	def show 
 		@test_result = Test.find(params[:id]) 
+	end
+
+	def destroy
+		@test = Test.find(params[:id])
+		@test.destroy
+		redirect_to '/admin'
 	end
 
 	def contact
@@ -57,6 +125,7 @@ class TestsController < ApplicationController
 									 :answer_16,
 									 :answer_17,
 									 :answer_18,
+									 :wrong_answers,
 									 ) 
 	end
 
