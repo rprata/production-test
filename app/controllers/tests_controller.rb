@@ -53,7 +53,7 @@ class TestsController < ApplicationController
 		if test.answer_16.eql? "sadness"
 			counter += 1
 		end
-		if test.answer_17.eql? "wouldn't like"
+		if test.answer_17.eql? "wouldn’t like"
 			counter += 1
 		end
 		if test.answer_18.eql? "lose"
@@ -61,6 +61,42 @@ class TestsController < ApplicationController
 		end
 
 		return counter
+	end
+
+	def get_morfo_data(test)
+		mp = 0
+		mnp = 0
+		if test.answer_5.eql? "becomes"
+			mnp += 1
+		elsif test.answer_5.eql? "is becoming"
+			mp += 1
+		end
+		if test.answer_6.eql? "don't understand"
+			mnp += 1
+		elsif test.answer_6.eql? "is not understanding"
+			mp += 1
+		end
+		if test.answer_9.eql? "doesn’t exist"
+			mnp += 1
+		elsif test.answer_9.eql? "is not existing"
+			mp += 1
+		end
+		if test.answer_12.eql? "see"
+			mnp += 1
+		elsif test.answer_12.eql? "am seeing"
+			mp += 1
+		end
+		if test.answer_14.eql? "lives"
+			mnp += 1
+		elsif test.answer_14.eql? "is living"
+			mp += 1
+		end
+		if test.answer_17.eql? "don’t like"
+			mnp += 1
+		elsif test.answer_17.eql? "am not liking"
+			mp += 1
+		end
+		return [["MP", mp],["MNP", mnp]]
 	end
 
 	def new
@@ -85,6 +121,7 @@ class TestsController < ApplicationController
 
 	def show 
 		@test_result = Test.find(params[:id]) 
+		@data = get_morfo_data(@test_result)
 	end
 
 	def destroy

@@ -115,7 +115,6 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
-  bundler (>= 1.8.4)
   chartkick
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)

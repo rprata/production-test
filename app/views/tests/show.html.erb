@@ -74,6 +74,9 @@
         </div>
     </header>
 
+    <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
+
+
     <!-- Main Content -->
     <article>
         <div class="container">
@@ -88,7 +91,7 @@
                     <h3>Gender: </h3>
                     <p><%= @test_result.gender %></p>
                     <hr/>
-                    <h3>Education: </h3>
+                    <h3>Education and Major: </h3>
                     <p><%= @test_result.education %></p>
                     <hr/>
                     <h3>Hometown: </h3>
@@ -105,35 +108,157 @@
                     <hr/>
                     <h2>How I met my wife</h2>
                         <p align="justify">
-                            In the early two thousands, more <font color="0000CC"><%= @test_result.answer_1 %></font> in 2001, I became a student of Harvard Law School. On my first day of class, despite being very shy, I met Helen, who became my best friend for the <font color="0000CC"><%= @test_result.answer_2 %></font> years in the University.
+                            In the early two thousands, more 
+                            <% if @test_result.answer_1.eql? "logically" %>
+                                <font color="CC0000"><%= @test_result.answer_1 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_1 %></font> 
+                            <% end %>
+                            in 2001, I became a student of Harvard Law School. On my first day of class, despite being very shy, I met Helen, who became my best friend for the 
+                            <% if @test_result.answer_2.eql? "past" %>
+                                <font color="CC0000"><%= @test_result.answer_2 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_2 %></font> 
+                            <% end %>
+                            years in the University.
                         </p>
                         <p align="justify">
-                            One day, he had <font color="0000CC"><%= @test_result.answer_3 %></font> to have lunch together after class. <font color="0000CC"><%= @test_result.answer_4 %></font> our plans changed when she received a call. Helen, with a smiling face, answered the cellphone. Her smile simply vanished – she seemed to be very tense.
+                            One day, he had 
+                            <% if @test_result.answer_3.eql? "depicted" %>
+                                <font color="CC0000"><%= @test_result.answer_3 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_3 %></font> 
+                            <% end %>
+                            to have lunch together after class. 
+                            <% if @test_result.answer_4.eql? "Accordingly" %>
+                                <font color="CC0000"><%= @test_result.answer_4 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_4 %></font> 
+                            <% end %>
+                            our plans changed when she received a call. Helen, with a smiling face, answered the cellphone. Her smile simply vanished – she seemed to be very tense.
                         </p>
                         <p align="justify">
-                            In that moment, I was already distressed and I could only think: “My goodness, who has it worse: is it Helen, that <font color="0000CC"><%= @test_result.answer_5 %></font> so nervous with the phone call, or me, the one that <font color="0000CC"><%= @test_result.answer_6 %></font> absolutely anything from this mysterious dialogue?”
+                            In that moment, I was already distressed and I could only think: “My goodness, who has it worse: is it Helen, that 
+                            <% if @test_result.answer_5.eql? "used to become" %>
+                                <font color="CC0000"><%= @test_result.answer_5 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_5 %></font> 
+                            <% end %>
+                            so nervous with the phone call, or me, the one that 
+                            <% if @test_result.answer_6.eql? "is used to understanding" %>
+                                <font color="CC0000"><%= @test_result.answer_6 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_6 %></font> 
+                            <% end %>
+                            absolutely anything from this mysterious dialogue?”
                         </p>
                         <p align="justify">
-                            When she hung up the phone, I asked her what was going on. Helen, crying, <font color="0000CC"><%= @test_result.answer_7 %></font>: “It was my cousin! Take me home, please! My mother is NY and some terrorists have just destroyed the building <font color="0000CC"><%= @test_result.answer_8 %></font> her appointment would take place.Nobody has talked to her yet!”
-                        </p>
-                        <p>
-                            “The possibility of leaving you alone <font color="0000CC"><%= @test_result.answer_9 %></font> in a moment like this. <font color="0000CC"><%= @test_result.answer_10 %></font> I’ll go home with you!” – I said.
-                        </p>
-                        <p align="justify">
-                            We went, then, <font color="0000CC"><%= @test_result.answer_11 %></font> Helen’s neighborhood. As soon as we arrived at her house, we rang the doorbell and somebody opened the door. That was very strange to me, because Helen told me she lived by herself. When the door was open, I thought: “I don’t believe in what I <font color="0000CC"><%= @test_result.answer_12 %></font>! She is absolutely the most beautiful woman in the world!”
-                        </p>
-                        <p align="justify">
-                            I spent so much time gazing at that <font color="0000CC"><%= @test_result.answer_13 %></font> that I forgot to come in. I stood still for a minute until Helen told me to enter. She said: “This is Joanne, my cousin.” When I entered the house, I thought to myself: “Joanne <font color="0000CC"><%= @test_result.answer_14 %></font> here!”
-                        </p>
-                        <p align="justify">
-                            Then, Joanne said: “Helen, you mother has just called. <font color="0000CC"><%= @test_result.answer_15 %></font>, ‘cause she is just fine. Her appointment was canceled.” Helen was crying much more now, but tears of relief. “I am so relieved!” – yelled Helen, in a burst of <font color="0000CC"><%= @test_result.answer_16 %></font>.
-                        </p>
-                        <p align="justify">
-                            “Oh yeah!” said Joanne. “But maybe he wasn’t so lucky, having undergone so much stress. Look at him, poor guy...” And talking to me, she continued: “I’ll do something for you. I <font color="0000CC"><%= @test_result.answer_17 %></font> your facial expression. You must be hungry! Why don’t we eat out to ease the tension?”
+                            When she hung up the phone, I asked her what was going on. Helen, crying, 
+                            <% if @test_result.answer_7.eql? "listened" %>
+                                <font color="CC0000"><%= @test_result.answer_7 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_7 %></font> 
+                            <% end %>
+                            : “It was my cousin! Take me home, please! My mother is NY and some terrorists have just destroyed the building 
+                            <% if @test_result.answer_8.eql? "who" %>
+                                <font color="CC0000"><%= @test_result.answer_8 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_8 %></font> 
+                            <% end %>
+                            her appointment would take place.Nobody has talked to her yet!”
                         </p>
                         <p align="justify">
-                            The telephone rang and Helen quickly answered it. “It’s my mom!” – she said – “you guys go together, I’ll meet you later!” We went together, Joanne and I, and, since then, we have never left each other’s sides. This is the story of our first date. It’s amazing that on a day like September 11, 2001, we could <font color="0000CC"><%= @test_result.answer_18 %></font> love in the midst of chaos.
+                            “The possibility of leaving you alone 
+                            <% if @test_result.answer_9.eql? "not to exist" %>
+                                <font color="CC0000"><%= @test_result.answer_9 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_9 %></font> 
+                            <% end %>
+                            in a moment like this. 
+                            <% if @test_result.answer_10.eql? "Who knows" %>
+                                <font color="CC0000"><%= @test_result.answer_10 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_10 %></font> 
+                            <% end %> 
+                            I’ll go home with you!” – I said.
                         </p>
+                        <p align="justify">
+                            We went, then, 
+                            <% if @test_result.answer_11.eql? "since" %>
+                                <font color="CC0000"><%= @test_result.answer_11 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_11 %></font> 
+                            <% end %>
+                            Helen’s neighborhood. As soon as we arrived at her house, we rang the doorbell and somebody opened the door. That was very strange to me, because Helen told me she lived by herself. When the door was open, I thought: “I don’t believe in what I 
+                            <% if @test_result.answer_12.eql? "will see" %>
+                                <font color="CC0000"><%= @test_result.answer_12 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_12 %></font> 
+                            <% end %>
+                            ! She is absolutely the most beautiful woman in the world!”
+                        </p>
+                        <p align="justify">
+                            I spent so much time gazing at that 
+                            <% if @test_result.answer_13.eql? "bird" %>
+                                <font color="CC0000"><%= @test_result.answer_13 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_13 %></font> 
+                            <% end %>
+                             that I forgot to come in. I stood still for a minute until Helen told me to enter. She said: “This is Joanne, my cousin.” When I entered the house, I thought to myself: “Joanne 
+                            <% if @test_result.answer_14.eql? "would live" %>
+                                <font color="CC0000"><%= @test_result.answer_14 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_14 %></font> 
+                            <% end %>
+                             here!”
+                        </p>
+                        <p align="justify">
+                            Then, Joanne said: “Helen, you mother has just called. 
+                            <% if @test_result.answer_15.eql? "Hurry up" %>
+                                <font color="CC0000"><%= @test_result.answer_15 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_15 %></font> 
+                            <% end %>
+                            , ‘cause she is just fine. Her appointment was canceled.” Helen was crying much more now, but tears of relief. “I am so relieved!” – yelled Helen, in a burst of 
+                            <% if @test_result.answer_16.eql? "sadness" %>
+                                <font color="CC0000"><%= @test_result.answer_16 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_16 %></font> 
+                            <% end %>
+                            .
+                        </p>
+                        <p align="justify">
+                            “Oh yeah!” said Joanne. “But maybe he wasn’t so lucky, having undergone so much stress. Look at him, poor guy...” And talking to me, she continued: “I’ll do something for you. I 
+                            <% if @test_result.answer_17.eql? "wouldn't like" %>
+                                <font color="CC0000"><%= @test_result.answer_17 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_17 %></font> 
+                            <% end %>
+                             your facial expression. You must be hungry! Why don’t we eat out to ease the tension?”
+                        </p>
+                        <p align="justify">
+                            The telephone rang and Helen quickly answered it. “It’s my mom!” – she said – “you guys go together, I’ll meet you later!” We went together, Joanne and I, and, since then, we have never left each other’s sides. This is the story of our first date. It’s amazing that on a day like September 11, 2001, we could 
+                            <% if @test_result.answer_18.eql? "lose" %>
+                                <font color="CC0000"><%= @test_result.answer_18 %></font> 
+                            <% else %>
+                                <font color="0000CC"><%= @test_result.answer_18 %></font> 
+                            <% end %>
+                             love in the midst of chaos.
+                        </p>
+                        <hr/>
+                        <h3>Progressive Morphology/ Non Progressive Morphology</h3>
+                        <% if @test_result.wrong_answers <= 3 %>
+                            <%= pie_chart @data %>
+                        <% else %> 
+                            <center>
+                                <br/>
+                                <br/>
+                                <font color="CC0000">This test is invalid: <%= @test_result.wrong_answers %>/18 errors</font>
+                                <br/>
+                                <br/>
+                            </center>
+                        <% end %>
+
                    </div>
             </div>
         </div>

@@ -112,6 +112,10 @@
                     <p><b>don't like/am not liking:</b></p>
                     <%= pie_chart Test.group(:answer_17).where("wrong_answers < ? AND answer_6 != ?", 3, "would'n like").count %>
                 </div>
+                <div>
+                    <p><b>Progressive Morphology/ Non Progressive Morphology</b></p>
+                    <%= pie_chart @data %>  
+                </div>
             </div>
         </div>
     </div>
