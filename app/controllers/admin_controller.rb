@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class AdminController < ApplicationController
 
 	before_action :require_user, only: [:index, :statistics]
