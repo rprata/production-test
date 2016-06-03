@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class TestsController < ApplicationController
 
 	before_action :require_user, only: [:show, :delete]
