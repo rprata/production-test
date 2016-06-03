@@ -48,6 +48,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../admin.html">Back</a></li>
                     <% if current_user %> 
                         <li><%= link_to "Log out", admin_logout_path, method: "delete" %></li> 
                     <% end %>
@@ -94,7 +95,10 @@
                     <h3>Education and Major: </h3>
                     <p><%= @test_result.education %></p>
                     <hr/>
-                    <h3>Hometown: </h3>
+                    <h3>Occupation: </h3>
+                    <p><%= @test_result.occupation %></p>
+                    <hr/>
+                    <h3>Hometown and Country: </h3>
                     <p><%= @test_result.hometown %></p>
                     <hr/>
                     <h3>E-mail: </h3>
@@ -158,8 +162,7 @@
                                 <font color="CC0000"><%= @test_result.answer_7 %></font> 
                             <% else %>
                                 <font color="0000CC"><%= @test_result.answer_7 %></font> 
-                            <% end %>
-                            : “It was my cousin! Take me home, please! My mother is NY and some terrorists have just destroyed the building 
+                            <% end %>: “It was my cousin! Take me home, please! My mother is NY and some terrorists have just destroyed the building 
                             <% if @test_result.answer_8.eql? "who" %>
                                 <font color="CC0000"><%= @test_result.answer_8 %></font> 
                             <% else %>
@@ -194,8 +197,7 @@
                                 <font color="CC0000"><%= @test_result.answer_12 %></font> 
                             <% else %>
                                 <font color="0000CC"><%= @test_result.answer_12 %></font> 
-                            <% end %>
-                            ! She is absolutely the most beautiful woman in the world!”
+                            <% end %>! She is absolutely the most beautiful woman in the world!”
                         </p>
                         <p align="justify">
                             I spent so much time gazing at that 
@@ -218,18 +220,16 @@
                                 <font color="CC0000"><%= @test_result.answer_15 %></font> 
                             <% else %>
                                 <font color="0000CC"><%= @test_result.answer_15 %></font> 
-                            <% end %>
-                            , ‘cause she is just fine. Her appointment was canceled.” Helen was crying much more now, but tears of relief. “I am so relieved!” – yelled Helen, in a burst of 
+                            <% end %>, ‘cause she is just fine. Her appointment was canceled.” Helen was crying much more now, but tears of relief. “I am so relieved!” – yelled Helen, in a burst of 
                             <% if @test_result.answer_16.eql? "sadness" %>
                                 <font color="CC0000"><%= @test_result.answer_16 %></font> 
                             <% else %>
                                 <font color="0000CC"><%= @test_result.answer_16 %></font> 
-                            <% end %>
-                            .
+                            <% end %>.
                         </p>
                         <p align="justify">
                             “Oh yeah!” said Joanne. “But maybe he wasn’t so lucky, having undergone so much stress. Look at him, poor guy...” And talking to me, she continued: “I’ll do something for you. I 
-                            <% if @test_result.answer_17.eql? "wouldn't like" %>
+                            <% if @test_result.answer_17.eql? "wouldn’t like" %>
                                 <font color="CC0000"><%= @test_result.answer_17 %></font> 
                             <% else %>
                                 <font color="0000CC"><%= @test_result.answer_17 %></font> 
@@ -272,7 +272,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2014</p>
+                    <p class="copyright text-muted">Copyright &copy; Bioling 2016</p>
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ class CreateTests < ActiveRecord::Migration
       t.string :gender
       t.string :age
       t.string :hometown
+      t.string :occupation
       t.string :education
       t.string :email
       t.string :bilingual

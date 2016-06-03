@@ -69,13 +69,13 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('/assets/post-bg.jpg')">
+    <header class="intro-header" style="background-image: url('/assets/post-bg-2.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
                         <h1>Instructions</h1>
-                        <h2 class="subheading" align="justify">You’re about to do is a story about how a guy met his wife. Note that you need to fill in some blanks. You have three choices of answers, but choose only one: the one that sounds more natural than the two others.</h2>
+                        <h2 class="subheading" align="justify">You’re about to read a story about how a guy met his wife. Note that you need to fill in some blanks. You have three choices of answers, but choose only one: the one that sounds more natural than the two others.</h2>
                     </div>
                 </div>
             </div>
@@ -96,13 +96,13 @@
                         One day, he had <%= t.select :answer_3, "<option></option><option>planned</option><option>scheduled</option><option>depicted</option>".html_safe %> to have lunch together after class. <%= t.select :answer_4, "<option></option><option>However</option><option>Accordingly</option><option>But</option>".html_safe %> our plans changed when she received a call. Helen, with a smiling face, answered the cellphone. Her smile simply vanished – she seemed to be very tense.
                     </p>
                     <p align="justify">
-                        In that moment, I was already distressed and I could only think: “My goodness, who has it worse: is it Helen, that <%= t.select :answer_5, "<option></option><option>becomes</option><option>is becoming</option><option>used to become</option>".html_safe %> so nervous with the phone call, or me, the one that <%= t.select :answer_6, "<option></option><option>is not understanding</option><option>is used to understanding</option><option>don’t understand</option>".html_safe %> absolutely anything from this mysterious dialogue?”
+                        In that moment, I was already distressed and I could only think: “My goodness, who has it worse: is it Helen, that <%= t.select :answer_5, "<option></option><option>becomes</option><option>is becoming</option><option>used to become</option>".html_safe %> so nervous with the phone call, or me, the one that <%= t.select :answer_6, "<option></option><option>isn’t understanding</option><option>is used to understanding</option><option>don’t understand</option>".html_safe %> absolutely anything from this mysterious dialogue?”
                     </p>
                     <p align="justify">
                         When she hung up the phone, I asked her what was going on. Helen, crying, <%= t.select :answer_7, "<option></option><option>said</option><option>told me</option><option>listened</option>".html_safe %>: “It was my cousin! Take me home, please! My mother is NY and some terrorists have just destroyed the building <%= t.select :answer_8, "<option></option><option>where</option><option>that</option><option>who</option>".html_safe %> her appointment would take place.Nobody has talked to her yet!”
                     </p>
                     <p>
-                        “The possibility of leaving you alone <%= t.select :answer_9, "<option></option><option>doesn’t exist</option><option>not to exist</option><option>is not existing</option>".html_safe %> in a moment like this. <%= t.select :answer_10, "<option></option><option>Who knows</option><option>It’s obvious</option><option>Of course</option>".html_safe %> I’ll go home with you!” – I said.
+                        “The possibility of leaving you alone <%= t.select :answer_9, "<option></option><option>doesn’t exist</option><option>not to exist</option><option>isn’t existing</option>".html_safe %> in a moment like this. <%= t.select :answer_10, "<option></option><option>Who knows</option><option>It’s obvious</option><option>Of course</option>".html_safe %> I’ll go home with you!” – I said.
                     </p>
                     <p align="justify">
                         We went, then, <%= t.select :answer_11, "<option></option><option>to</option><option>over to</option><option>since</option>".html_safe %> Helen’s neighborhood. As soon as we arrived at her house, we rang the doorbell and somebody opened the door. That was very strange to me, because Helen told me she lived by herself. When the door was open, I thought: “I don’t believe in what I <%= t.select :answer_12, "<option></option><option>will see</option><option>see</option><option> am seeing </option>".html_safe %>! She is absolutely the most beautiful woman in the world!”
@@ -153,8 +153,15 @@
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Hometown</label>
+                            <label>Hometown and Country</label>
                             <%= t.text_field :hometown, :placeholder => "Hometown", class: "form-control" %>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Occupation</label>
+                            <%= t.text_field :occupation, :placeholder => "Occupation", class: "form-control" %>
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
@@ -206,7 +213,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+                    <p class="copyright text-muted">Copyright &copy; Bioling 2016</p>
                 </div>
             </div>
         </div>
@@ -239,6 +246,9 @@
                         email: true
                     },
                     'test[education]': {
+                        required: true
+                    },
+                    'test[occupation]': {
                         required: true
                     },
                     'test[hometown]': {

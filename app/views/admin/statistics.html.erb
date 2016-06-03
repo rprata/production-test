@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Clean Blog</title>
+    <title>Patricia's Page</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap.min.css" rel="stylesheet">
@@ -73,7 +73,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>Clean Blog</h1>
+                        <h1>Patricia's Page</h1>
                         <hr class="small">
                         <span class="subheading">Statistics</span>
                     </div>
@@ -93,11 +93,11 @@
                     <%= pie_chart Test.group(:answer_5).where("wrong_answers < ? AND answer_5 != ?", 3, "used to become").count %>
                 </div>
                 <div>
-                    <p><b>is not undestanding/don't understanding:</b></p>
+                    <p><b>isn't undestanding/don't understanding:</b></p>
                     <%= pie_chart Test.group(:answer_6).where("wrong_answers < ? AND answer_6 != ?", 3, "is used to understanding").count %>
                 </div>
                 <div>
-                    <p><b>doesn't exist/is not existing:</b></p>
+                    <p><b>doesn't exist/isn't existing:</b></p>
                     <%= pie_chart Test.group(:answer_9).where("wrong_answers < ? AND answer_9 != ?", 3, "not to exist").count %>
                 </div>
                 <div>
@@ -126,7 +126,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2014</p>
+                    <p class="copyright text-muted">Copyright &copy; Bioling 2016</p>
                 </div>
             </div>
         </div>

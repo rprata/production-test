@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160528140957) do
     t.string   "gender"
     t.string   "age"
     t.string   "hometown"
+    t.string   "occupation"
     t.string   "education"
     t.string   "email"
     t.string   "bilingual"

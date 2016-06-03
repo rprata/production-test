@@ -71,14 +71,14 @@ class TestsController < ApplicationController
 		elsif test.answer_5.eql? "is becoming"
 			mp += 1
 		end
-		if test.answer_6.eql? "don't understand"
+		if test.answer_6.eql? "don’t understand"
 			mnp += 1
-		elsif test.answer_6.eql? "is not understanding"
+		elsif test.answer_6.eql? "isn’t understanding"
 			mp += 1
 		end
 		if test.answer_9.eql? "doesn’t exist"
 			mnp += 1
-		elsif test.answer_9.eql? "is not existing"
+		elsif test.answer_9.eql? "isn’t existing"
 			mp += 1
 		end
 		if test.answer_12.eql? "see"
@@ -141,6 +141,7 @@ class TestsController < ApplicationController
 									 :age,
 									 :hometown,
 									 :education,
+									 :occupation,
 									 :email,
 									 :bilingual,
 									 :foreign,

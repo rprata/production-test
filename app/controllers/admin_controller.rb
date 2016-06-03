@@ -2,8 +2,7 @@ class AdminController < ApplicationController
 
 	before_action :require_user, only: [:index, :statistics]
 
-	def get_all_morfo_data()
-		tests = Test.all
+	def get_all_morfo_data(tests)
 		mp = 0
 		mnp = 0
 		tests.each do |test|
@@ -49,7 +48,7 @@ class AdminController < ApplicationController
 
 	def statistics
 		@test_results = Test.all
-		@data = get_all_morfo_data()
+		@data = get_all_morfo_data(@test_results)
 	end
 
 end
