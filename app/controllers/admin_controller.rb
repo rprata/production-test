@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class AdminController < ApplicationController
 
-	before_action :require_user, only: [:index, :statistics]
+	before_action :require_user, only: [:index, :index_br, :statistics, :statistics_br]
 
 	def get_all_morfo_data(tests)
 		mp = 0
