@@ -18,6 +18,8 @@
     <!-- Custom CSS -->
     <link href="clean-blog.min.css" rel="stylesheet">
 
+    <link href="sweetalert.css" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -76,61 +78,70 @@
                     <div class="site-heading">
                         <h1>Patricia's Page</h1>
                         <hr class="small">
-                        <span class="subheading">Statistics</span>
+                        <span class="subheading">Results</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
-
     <!-- Main Content -->
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <a href="statistics.html"><font color="000000"><b>English Statistics</b></font></a>
+                <a href="admin-br.html"><font color="000000"><b>Portuguese Results</b></font></a>
                 <hr/>
             </div>
             <div class="col-sm-6">
-                <a href="statistics-br.html"><font color="00000">Portuguese Statistics</font></a>
+                <a href="admin.html"><font color="00000">English Results</font></a>
             </div>
         </div>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div>
-                    <p><b>becomes/becoming:</b></p>
-                    <%= pie_chart Test.group(:answer_5).where("wrong_answers < ? AND answer_5 != ?", 3, "used to become").count %>
-                </div>
-                <div>
-                    <p><b>isn't undestanding/don't understanding:</b></p>
-                    <%= pie_chart Test.group(:answer_6).where("wrong_answers < ? AND answer_6 != ?", 3, "is used to understanding").count %>
-                </div>
-                <div>
-                    <p><b>doesn't exist/isn't existing:</b></p>
-                    <%= pie_chart Test.group(:answer_9).where("wrong_answers < ? AND answer_9 != ?", 3, "not to exist").count %>
-                </div>
-                <div>
-                    <p><b>see/am seeing:</b></p>
-                    <%= pie_chart Test.group(:answer_12).where("wrong_answers < ? AND answer_12 != ?", 3, "will see").count %>
-                </div>
-                <div>
-                    <p><b>lives/is living:</b></p>
-                    <%= pie_chart Test.group(:answer_14).where("wrong_answers < ? AND answer_14 != ?", 3, "would live").count %>
-                </div>
-                <div>
-                    <p><b>don't like/am not liking:</b></p>
-                    <%= pie_chart Test.group(:answer_17).where("wrong_answers < ? AND answer_6 != ?", 3, "would'n like").count %>
-                </div>
-                <div>
-                    <p><b>Progressive Morphology/ Non Progressive Morphology</b></p>
-                    <%= pie_chart @data %>  
-                </div>
-            </div>
+        <!-- Adicionar lista dos testes realizados -->
+        <div class="table-responsive">          
+            <table class="table">
+                    <thead>
+                        <tr>
+                            <td>
+                                Name
+                            </td>
+                            <td>
+                                Created At
+                            </td>
+                            <td>
+                                Answers
+                            </td>
+                            <td>
+                                
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @test_results.each do |test_result| %> 
+                        <tr>
+                            <td><%= link_to test_result.name, br_test_path(test_result)%> </td>
+                            <td><%= test_result.created_at %></td>
+                            <%  if test_result.wrong_answers >= 3 %>
+                                <td><font color="CC0000"><%= test_result.wrong_answers %>/18<font></td>
+                            <% else %>
+                                <td><font color="0000CC"><%= test_result.wrong_answers %>/18<font></td>
+                            <% end %>
+                            <td><%= link_to "Delete", test_result, :method => :delete, data: {
+                                  confirm: 'Take easy, man!',
+                                  :'confirm-button-text' => 'Yes, of course',
+                                  :'cancel-button-text' => 'No way',
+                                  :'confirm-button-color' => '#66CD00',
+                                  :'sweet-alert-type' => 'info',
+                                  text: 'Do you want delete this?'} %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div> 
         </div>
     </div>
+
     <hr>
 
     <!-- Footer -->
@@ -144,12 +155,15 @@
         </div>
     </footer>
 
+    <%= javascript_include_tag "sweetalert.min.js" %>
+
     <%= javascript_include_tag "jquery.js" %>
     <%= javascript_include_tag "jquery.validate.js" %>
 
     <!-- Bootstrap Core JavaScript -->
     <%= javascript_include_tag "bootstrap.min.js" %>
-    
+
+
 </body>
 
 </html>

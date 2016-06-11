@@ -89,11 +89,11 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <a href="statistics.html"><font color="000000"><b>English Statistics</b></font></a>
+                <a href="statistics-br.html"><font color="000000"><b>Portuguese Statistics</b></font></a>
                 <hr/>
             </div>
             <div class="col-sm-6">
-                <a href="statistics-br.html"><font color="00000">Portuguese Statistics</font></a>
+                <a href="statistics.html"><font color="00000">English Statistics</font></a>
             </div>
         </div>
     </div>
@@ -101,28 +101,28 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div>
-                    <p><b>becomes/becoming:</b></p>
-                    <%= pie_chart Test.group(:answer_5).where("wrong_answers < ? AND answer_5 != ?", 3, "used to become").count %>
+                    <p><b>fica/está ficando:</b></p>
+                    <%= pie_chart BrTest.group(:answer_5).where("wrong_answers < ? AND answer_5 != ?", 3, "ficaria").count %>
                 </div>
                 <div>
-                    <p><b>isn't undestanding/don't understanding:</b></p>
-                    <%= pie_chart Test.group(:answer_6).where("wrong_answers < ? AND answer_6 != ?", 3, "is used to understanding").count %>
+                    <p><b>entendo/estou entendendo:</b></p>
+                    <%= pie_chart BrTest.group(:answer_6).where("wrong_answers < ? AND answer_6 != ?", 3, "entendesse").count %>
                 </div>
                 <div>
-                    <p><b>doesn't exist/isn't existing:</b></p>
-                    <%= pie_chart Test.group(:answer_9).where("wrong_answers < ? AND answer_9 != ?", 3, "not to exist").count %>
+                    <p><b>existe/está existindo:</b></p>
+                    <%= pie_chart BrTest.group(:answer_9).where("wrong_answers < ? AND answer_9 != ?", 3, "existir").count %>
                 </div>
                 <div>
-                    <p><b>see/am seeing:</b></p>
-                    <%= pie_chart Test.group(:answer_12).where("wrong_answers < ? AND answer_12 != ?", 3, "will see").count %>
+                    <p><b>vejo/estou vendo:</b></p>
+                    <%= pie_chart BrTest.group(:answer_12).where("wrong_answers < ? AND answer_12 != ?", 3, "verei").count %>
                 </div>
                 <div>
-                    <p><b>lives/is living:</b></p>
-                    <%= pie_chart Test.group(:answer_14).where("wrong_answers < ? AND answer_14 != ?", 3, "would live").count %>
+                    <p><b>mora/está morando:</b></p>
+                    <%= pie_chart BrTest.group(:answer_14).where("wrong_answers < ? AND answer_14 != ?", 3, "morasse").count %>
                 </div>
                 <div>
-                    <p><b>don't like/am not liking:</b></p>
-                    <%= pie_chart Test.group(:answer_17).where("wrong_answers < ? AND answer_6 != ?", 3, "would'n like").count %>
+                    <p><b>gosto/estou gostando:</b></p>
+                    <%= pie_chart BrTest.group(:answer_17).where("wrong_answers < ? AND answer_6 != ?", 3, "gostaria").count %>
                 </div>
                 <div>
                     <p><b>Progressive Morphology/ Non Progressive Morphology</b></p>

@@ -7,9 +7,16 @@ ProductionTest::Application.routes.draw do
   get '/index' => 'tests#index'
   get '/tests/:id' => 'tests#show'
 
+  resources :br_tests
+  get '/texto' => 'br_tests#new'
+  post 'texto' => 'br_tests#create'
+  get '/testes/:id' => 'br_tests#show'
+
   resources :users
   get '/admin' => 'admin#index'
+  get '/admin-br' => 'admin#index_br'
   get '/statistics' => 'admin#statistics'
+  get '/statistics-br' => 'admin#statistics_br'
   get '/admin/signup'  => 'users#new' 
   get '/admin/login'  => 'sessions#new' 
   post '/admin/login' => 'sessions#create'
