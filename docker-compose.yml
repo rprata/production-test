@@ -12,10 +12,11 @@ services:
      - ./db:/home/app/db
      - .:/live_code
   db:
-    image: mysql
+    image: postgres
     volumes:
-     - /Users/andrestephano/my_backups/sql:/var/lib/mysql
-     - ./docker/mysql/confs:/etc/mysql/conf.d
+     - /etc/postgresql
+     - /var/log/postgresql
+     - /var/lib/postgresql
     environment:
      - MYSQL_ROOT_PASSWORD=pass
      - character-set-server=utf8mb4
