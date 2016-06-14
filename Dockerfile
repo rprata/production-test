@@ -22,7 +22,6 @@ WORKDIR /home/app/
 ## Gem cache
 ADD Gemfile /home/app/Gemfile
 ADD Gemfile.lock /home/app/Gemfile.lock
-USER app
 RUN bundle install --path=/home/app/bundle
 ## assets cache
 #ADD app/assets/ /home/app/app/assets/

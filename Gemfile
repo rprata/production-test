@@ -12,7 +12,7 @@ end
 
 group :production do
   # Use pg as the database for Active Record
-  gem 'pg'
+  gem 'mysql2', '~> 0.3.18'
 end
 
 # Use SCSS for stylesheets
