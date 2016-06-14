@@ -11,7 +11,7 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: bookstore_development
+  database: production_development
   pool: 10
   host: db
   username: root
@@ -23,7 +23,7 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: bookstore_test
+  database: production_test
   pool: 10
   host: db
   username: root
@@ -32,7 +32,7 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: bookstore_development
+  database: production_production
   pool: 10
   host: db
   username: root
