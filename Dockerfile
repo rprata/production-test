@@ -49,8 +49,7 @@ RUN rm /etc/nginx/sites-enabled/default
 ADD docker/nginx/picasso.conf /etc/nginx/sites-enabled/picasso.conf
 ADD docker/nginx/secret_key.conf /etc/nginx/main.d/secret_key.conf
 ADD docker/nginx/gzip_max.conf /etc/nginx/conf.d/gzip_max.conf
-ADD docker/content/rubber.yml /home/app/config/rubber/rubber.yml
-ADD docker/content/database.yml config/database.yml
+ADD docker/content/private/database.yml config/database.yml
 
 # Use baseimage-docker's init process.
 CMD ["/sbin/my_init"]
