@@ -1,0 +1,31 @@
+version: '2'
+services:
+  web:
+    build: .
+    ports:
+     - "80:80"
+     - "3000:3000"
+    depends_on:
+     - db
+     - redis
+    volumes:
+     - ./db:/home/app/db
+     - .:/live_code
+  db:
+    image: mysql
+    volumes:
+     - /Users/andrestephano/my_backups/sql:/var/lib/mysql
+     - ./docker/mysql/confs:/etc/mysql/conf.d
+    environment:
+     - MYSQL_ROOT_PASSWORD=pass
+     - character-set-server=utf8mb4
+     - collation-server=utf8mb4_unicode_ci
+  redis:
+    image: redis
+    volumes:
+     - /server_backup/redis:/data
+
+# docker-compose up then the the commands could be executed in another window
+# docker-compose run web rake db:create RAILS_ENV=production
+# docker-compose run web rake db:schema:load RAILS_ENV=production
+# docker-compose run web rake db:migrate RAILS_ENV=production
